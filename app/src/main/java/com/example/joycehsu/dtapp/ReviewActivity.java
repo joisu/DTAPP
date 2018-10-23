@@ -1,12 +1,14 @@
 package com.example.joycehsu.dtapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class ReviewActivity extends BaseActivity {
 
@@ -26,6 +28,20 @@ public class ReviewActivity extends BaseActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Button buttonGoToQuiz = findViewById(R.id.button_goToQuiz);
+        buttonGoToQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToQuiz();
+            }
+        });
+    }
+
+    // intent method to go to the quiz from review
+    private void goToQuiz() {
+        Intent intent = new Intent(ReviewActivity.this, QuizStartActivity.class);
+        startActivity(intent);
     }
 
     @Override

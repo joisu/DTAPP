@@ -29,6 +29,12 @@
         <activity
             android:name=".LearningActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuizActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".QuizStartActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 
