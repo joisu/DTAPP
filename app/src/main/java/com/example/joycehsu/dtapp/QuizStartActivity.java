@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class QuizStartActivity extends AppCompatActivity {
-    //request code helps to identify the result as it is passed through activities
     private static final int REQUESTCODE_QUIZ = 1;
     public static final String SHARED_PREFERENCES = "sharedPreferences";
     public static final String HIGHSCORE_KEY = "highScoreKey";
@@ -58,7 +57,7 @@ public class QuizStartActivity extends AppCompatActivity {
 
     private void startQuiz() {
         Intent intent = new Intent(QuizStartActivity.this, QuizActivity.class);
-        //startActivity() but it also returns a result back.
+        //it's startActivity() but it accepts a result back.
         startActivityForResult(intent, REQUESTCODE_QUIZ);
     }
 
@@ -72,11 +71,13 @@ public class QuizStartActivity extends AppCompatActivity {
         if (requestCode == REQUESTCODE_QUIZ) {
             //checks if the request and result was successful
             if (resultCode == RESULT_OK) {
-                //stores the score from the QuizActivity as 'score' in this QuizStartActivity
-                int score = data.getIntExtra(QuizActivity.TRANSFER_SCORE, 0);
-                //compares it to current highScore
-                if (score > highScore) {
-                    updateHighScore(score);
+
+                //stores the score from QuizReviewActivity
+                int scoreQuizReview = data.getIntExtra(QuizReviewActivity.TRANSFER_REVIEWSCORE, 0);
+
+                //compares it to the current highscore
+                if (scoreQuizReview > highScore) {
+                    updateHighScore(scoreQuizReview);
                 }
             }
         }

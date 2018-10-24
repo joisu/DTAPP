@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +41,6 @@ public class QuizActivity extends AppCompatActivity {
     private static final long COUNTDOWN_MS = 25000;
     private CountDownTimer countDownTimer;
     private long countDownTimeLeft_MS;
-
-    public static final String TRANSFER_SCORE = "transferScore";
 
 
     @Override
@@ -131,7 +130,8 @@ public class QuizActivity extends AppCompatActivity {
             countDownTimeLeft_MS = COUNTDOWN_MS;
             startTimer();
         } else {
-            finishQuiz();
+            reviewQuiz();
+
         }
     }
 
@@ -198,7 +198,6 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     //part of checkAnswer(); visual changes to Views
-
     private void showSolution() {
         //change all solutions to red
         radButton1.setTextColor(Color.RED);
@@ -230,29 +229,21 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    //executes onDestroy(), ends the quiz
-    private void finishQuiz() {
-        //also passes the score back (to the QuizStartActivity)
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra(TRANSFER_SCORE, score);
-        setResult(RESULT_OK, resultIntent);
-        finish();
-    }
 
     //security feature in case you mis-click the back button
     //only activates onBackPressed() if you tap twice in a short time
     @Override
     public void onBackPressed() {
         if (backPressedTimer + 2000 > System.currentTimeMillis()) {
-            finishQuiz();
+            finish();
         } else {
-            Toast.makeText(this, "Press back again to finish early", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "WARNING: Press back again to finish WITHOUT saving score!", Toast.LENGTH_SHORT).show();
         }
         backPressedTimer = System.currentTimeMillis();
     }
 
     //timer typically persists even if the app is closed
-    //need to make sure that the timer is cancelled when onDestroy()
+    //this override is needed to make sure that the timer is cancelled when activity is onDestroy()
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -260,4 +251,23 @@ public class QuizActivity extends AppCompatActivity {
             countDownTimer.cancel();
         }
     }
+
+    //takes you to the post-quiz review activity; carries score and question count total
+    private void reviewQuiz() {
+
+        Intent intent = new Intent(QuizActivity.this, QuizReviewActivity.class);
+
+        intent.putExtra("score", score);
+        intent.putExtra("questioncounttotal", questionCountTotal);
+
+        //we want to eventually return a result to QuizStartActivity, but this QuizActivity is going to call finish() and be destroyed
+        //this flag will allow us to carry forward the result from QuizReviewActivity, through this to-be-deceased activity, back to QuizStartActivity.
+        //this single line took me a very long time and hours of circumstance testing to figure out...
+        intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+
+        startActivity(intent);
+        finish();
+    }
+
 }
+

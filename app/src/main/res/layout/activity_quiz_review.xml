@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:padding="10dp"
+    tools:context=".QuizReviewActivity">
+
+    <TextView
+        android:id="@+id/textview_quizreviewscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ratingbar_quizreviewratingbar"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:text="You scored: ?/x"
+        android:textSize="25dp" />
+
+    <RatingBar
+        android:id="@+id/ratingbar_quizreviewratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:clickable="false"
+        android:numStars="5"
+        android:stepSize="1" />
+
+    <TextView
+        android:id="@+id/textview_quizreviewfeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingbar_quizreviewratingbar"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:text="infs2603 wasn't that bad right?"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button_quizreviewfinish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_quizreviewfeedback"
+        android:layout_centerHorizontal="true"
+        android:text="Save &amp; finish" />
+
+</RelativeLayout>
