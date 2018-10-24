@@ -40,6 +40,9 @@
         <activity
             android:name=".DetailsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 

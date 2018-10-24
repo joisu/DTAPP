@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity implements
 
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
+
+
     }
 
     // [START on_start_check_user]
@@ -77,6 +79,12 @@ public class LoginActivity extends AppCompatActivity implements
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+        if (currentUser == null) {
+            // No user is signed in
+        } else {
+//            Intent i = new Intent(LoginActivity.this, BaseActivity.class);
+//            startActivity(i);
+        }
     }
     // [END on_start_check_user]
 
@@ -119,12 +127,13 @@ public class LoginActivity extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
 
-                            Intent i = new Intent(LoginActivity.this, BaseActivity.class);
+
+
+                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
 //                            i.putExtra("Username", name);
                             startActivity(i);
-
+                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -179,8 +188,9 @@ public class LoginActivity extends AppCompatActivity implements
     private void updateUI(FirebaseUser user) {
         progressBar.setVisibility(View.GONE);
         if (user != null) {
+            name = user.getDisplayName();
             mStatusTextView.setText("Google Email: "+user.getEmail()+"\n"+
-                    "Full Name: "+user.getDisplayName());
+                    "Full Name: "+ name);
             mDetailTextView.setText("Firebase User: "+user.getUid());
 //            name = ""+user.getDisplayName();
 

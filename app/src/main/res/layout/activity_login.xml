@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
@@ -17,18 +18,19 @@
 
         <ImageView
             android:id="@+id/google_icon"
-            android:contentDescription="Firebase logo and name"
-            android:src="@drawable/creativeidea"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="@android:dimen/thumbnail_width"
+            android:contentDescription="Firebase logo and name"
+            android:src="@drawable/empathy" />
 
         <TextView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:textSize="30dp"
-            android:text="Design Thinking" />
+            android:text="Design Thinking"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:layout_width="wrap_content"

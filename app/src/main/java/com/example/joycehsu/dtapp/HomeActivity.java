@@ -1,141 +1,85 @@
 package com.example.joycehsu.dtapp;
 
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class HomeActivity extends BaseActivity implements View.OnClickListener{
 
-import java.util.ArrayList;
-import java.util.HashMap;
+    private CardView newsCard, learningCard, activitiesCard, settingsCard, quizCard;
 
-public class HomeActivity extends BaseActivity {
-    String API_KEY = "4f3d80e4807f45bb96d5bce27eb2eb49";
-    String NEWS_SOURCE = "techcrunch";
-    ListView listNews;
-    ProgressBar loader;
-
-    ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
-    static final String KEY_AUTHOR = "author";
-    static final String KEY_TITLE = "title";
-    static final String KEY_DESCRIPTION = "description";
-    static final String KEY_URL = "url";
-    static final String KEY_URLTOIMAGE = "urlToImage";
-    static final String KEY_PUBLISHEDAT = "publishedAt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        //activity view
-    //    setContentView(R.layout.activity_home);
         View contentView = inflater.inflate(R.layout.activity_home, null, false);
         drawer.addView(contentView, 0);
-        listNews = (ListView) findViewById(R.id.listNews);
-        loader = (ProgressBar) findViewById(R.id.loader);
-        listNews.setEmptyView(loader);
-        if (Function.isNetworkAvailable(getApplicationContext())) {
-            DownloadNews newsTask = new DownloadNews();
-            newsTask.execute();
-        } else {
-            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
-        }
-
         navigationView.setCheckedItem(R.id.nav_home);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Hello First Activity", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Hello Second Activity", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
+        //link cards
+        newsCard = (CardView) findViewById(R.id.newscard);
+        learningCard = (CardView) findViewById(R.id.learningcard);
+        activitiesCard = (CardView) findViewById(R.id.activitiescard);
+        settingsCard = (CardView) findViewById(R.id.settingscard);
+        quizCard = (CardView) findViewById(R.id.quizcard);
 
+        //add on click listeners
+        newsCard.setOnClickListener(this);
+        learningCard.setOnClickListener(this);
+        activitiesCard.setOnClickListener(this);
+        settingsCard.setOnClickListener(this);
+        quizCard.setOnClickListener(this);
     }
 
-    class DownloadNews extends AsyncTask<String, Void, String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
+    @Override
+    public void onClick(View view) {
+        Intent i;
 
-        }
+        switch (view.getId()) {
+            case R.id.newscard: i = new Intent(this,NewsActivity.class);
+                startActivity(i);
+                break;
 
-        protected String doInBackground(String... args) {
-            String xml = "";
+            case R.id.learningcard: i = new Intent(this,LearningActivity.class);
+                startActivity(i);
+                break;
 
-            String urlParameters = "";
-            xml = Function.excuteGet("https://newsapi.org/v1/articles?source=" + NEWS_SOURCE + "&sortBy=top&apiKey=" + API_KEY, urlParameters);
-            return xml;
-        }
+            case R.id.activitiescard: i = new Intent(this,NewsActivity.class);
+                startActivity(i);
+                break;
 
-        @Override
-        protected void onPostExecute(String xml) {
+            case R.id.settingscard: i = new Intent(this,SettingsActivity.class);
+                startActivity(i);
+                break;
 
-            if (xml.length() > 10) { // Just checking if not empty
+            case R.id.quizcard: i = new Intent(this,ReviewActivity.class);
+                startActivity(i);
+                break;
 
-                try {
-                    JSONObject jsonResponse = new JSONObject(xml);
-                    JSONArray jsonArray = jsonResponse.optJSONArray("articles");
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        map.put(KEY_AUTHOR, jsonObject.optString(KEY_AUTHOR).toString());
-                        map.put(KEY_TITLE, jsonObject.optString(KEY_TITLE).toString());
-                        map.put(KEY_DESCRIPTION, jsonObject.optString(KEY_DESCRIPTION).toString());
-                        map.put(KEY_URL, jsonObject.optString(KEY_URL).toString());
-                        map.put(KEY_URLTOIMAGE, jsonObject.optString(KEY_URLTOIMAGE).toString());
-                        map.put(KEY_PUBLISHEDAT, jsonObject.optString(KEY_PUBLISHEDAT).toString());
-                        dataList.add(map);
-                    }
-                } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "Unexpected error", Toast.LENGTH_SHORT).show();
-                }
-
-                ListNewsAdapter adapter = new ListNewsAdapter(HomeActivity.this, dataList);
-                listNews.setAdapter(adapter);
-
-                listNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-                        Intent i = new Intent(HomeActivity.this, DetailsActivity.class);
-                        i.putExtra("url", dataList.get(+position).get(KEY_URL));
-                        startActivity(i);
-                    }
-                });
-
-            } else {
-                Toast.makeText(getApplicationContext(), "No news found", Toast.LENGTH_SHORT).show();
-            }
+            default:break;
         }
 
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
+        getMenuInflater().inflate(R.menu.menu_learning, menu);
         return true;
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -145,12 +89,10 @@ public class HomeActivity extends BaseActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu_home) {
+        if (id == R.id.action_menu_learning) {
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

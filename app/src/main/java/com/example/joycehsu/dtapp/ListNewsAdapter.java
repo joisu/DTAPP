@@ -55,17 +55,17 @@ class ListNewsAdapter extends BaseAdapter {
         song = data.get(position);
 
         try{
-            holder.author.setText(song.get(HomeActivity.KEY_AUTHOR));
-            holder.title.setText(song.get(HomeActivity.KEY_TITLE));
-            holder.time.setText(song.get(HomeActivity.KEY_PUBLISHEDAT));
-            holder.sdetails.setText(song.get(HomeActivity.KEY_DESCRIPTION));
+            holder.author.setText(song.get(NewsActivity.KEY_AUTHOR));
+            holder.title.setText(song.get(NewsActivity.KEY_TITLE));
+            holder.time.setText(song.get(NewsActivity.KEY_PUBLISHEDAT));
+            holder.sdetails.setText(song.get(NewsActivity.KEY_DESCRIPTION));
 
-            if(song.get(HomeActivity.KEY_URLTOIMAGE).toString().length() < 5)
+            if(song.get(NewsActivity.KEY_URLTOIMAGE).toString().length() < 5)
             {
                 holder.galleryImage.setVisibility(View.GONE);
             }else{
                 Picasso.with(activity)
-                        .load(song.get(HomeActivity.KEY_URLTOIMAGE).toString())
+                        .load(song.get(NewsActivity.KEY_URLTOIMAGE).toString())
                         .resize(300, 200)
                         .into(holder.galleryImage);
             }
