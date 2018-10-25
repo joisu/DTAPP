@@ -62,10 +62,14 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q2);
         Question q3 = new Question("I think C is correct?", "A", "B", "C", 3);
         addQuestion(q3);
-        Question q4 = new Question("I think A is correct again?", "A", "B", "C", 1);
+        Question q4 = new Question("I think A is correct #2", "A", "B", "C", 1);
         addQuestion(q4);
-        Question q5 = new Question("I think B is correct again?", "A", "B", "C", 2);
+        Question q5 = new Question("I think B is correct #2", "A", "B", "C", 2);
         addQuestion(q5);
+        Question q6 = new Question("Extra question 1 (pick A)", "A", "B", "C", 1);
+        addQuestion(q6);
+        Question q7 = new Question("Extra question 2 (Pick B)", "A", "B", "C", 2);
+        addQuestion(q7);
     }
 
     //ContentValues uses key-value pairs to put the declared question data into the table
