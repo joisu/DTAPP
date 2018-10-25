@@ -42,6 +42,7 @@ public class ReviewActivity extends BaseActivity {
     private void goToQuiz() {
         Intent intent = new Intent(ReviewActivity.this, QuizStartActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     @Override

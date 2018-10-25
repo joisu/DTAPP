@@ -37,7 +37,7 @@
         android:text="I'm ready!" />
 
     <Button
-        android:id="@+id/button_home"
+        android:id="@+id/button_stopquiz"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button_startquiz"

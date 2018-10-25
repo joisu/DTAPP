@@ -1,9 +1,15 @@
 package com.example.joycehsu.dtapp;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.ChangeBounds;
+import android.transition.Fade;
+import android.transition.TransitionManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -11,6 +17,7 @@ import android.widget.Toast;
 
 public class QuizReviewActivity extends AppCompatActivity {
     public static final String TRANSFER_REVIEWSCORE = "transferReviewScore";
+    private Button buttonQuizReviewAnimate;
     private TextView textViewQuizReviewScore;
     private RatingBar ratingBar;
     private TextView textViewQuizReviewFeedback;
@@ -29,6 +36,32 @@ public class QuizReviewActivity extends AppCompatActivity {
         final int reviewscore = intent.getIntExtra("score", 0);
         int questionCountTotal = intent.getIntExtra("questioncounttotal", 0);
         float scoreratio = (float) reviewscore / (float) questionCountTotal;
+
+        final ViewGroup transitionsContainer1 = (ViewGroup) findViewById(R.id.transitionscontainer1);
+
+        buttonQuizReviewAnimate = (Button) findViewById(R.id.button_quizreviewanimate);
+        buttonQuizReviewAnimate.setOnClickListener(new View.OnClickListener() {
+
+            boolean visible;
+
+            //i hope you're API level 19+, or this ain't gonna work
+            @TargetApi(Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View view) {
+
+                //cool transition yeet
+                TransitionManager.beginDelayedTransition(transitionsContainer1);
+                //reverses the boolean
+                visible = !visible;
+                //makes the invisible views visible
+                textViewQuizReviewScore.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                ratingBar.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                textViewQuizReviewFeedback.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+                buttonQuizReviewFinish.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+
+
+            }
+        });
 
         textViewQuizReviewScore = (TextView) findViewById(R.id.textview_quizreviewscore);
         //show score

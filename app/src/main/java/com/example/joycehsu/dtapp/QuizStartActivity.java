@@ -35,12 +35,12 @@ public class QuizStartActivity extends AppCompatActivity {
         });
 
         //linking home button to XML
-        Button buttonHome = findViewById(R.id.button_home);
+        Button buttonStopQuiz = findViewById(R.id.button_stopquiz);
         //functionality for home button
-        buttonHome.setOnClickListener(new View.OnClickListener() {
+        buttonStopQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goHome();
+                stopQuiz();
             }
         });
 
@@ -49,10 +49,11 @@ public class QuizStartActivity extends AppCompatActivity {
         loadHighScore();
     }
 
-    private void goHome() {
+    //calls finish() on this activity
+    private void stopQuiz() {
         Toast.makeText(this, "This should link back to the ReviewActivity", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(QuizStartActivity.this, ReviewActivity.class);
-        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     private void startQuiz() {
@@ -100,7 +101,9 @@ public class QuizStartActivity extends AppCompatActivity {
     private void loadHighScore() {
         SharedPreferences preferences = getSharedPreferences(SHARED_PREFERENCES, MODE_PRIVATE);
         //sets highScore variable with the key-value pair
+
         highScore = preferences.getInt(HIGHSCORE_KEY, 0);
+
         textViewHighScore.setText("Highscore: " + highScore);
     }
 }
