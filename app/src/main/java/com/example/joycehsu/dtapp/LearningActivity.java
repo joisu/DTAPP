@@ -1,15 +1,18 @@
 package com.example.joycehsu.dtapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class LearningActivity extends BaseActivity {
+public class LearningActivity extends BaseActivity implements View.OnClickListener {
 
+    private CardView card1, card2, card3, card4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,45 @@ public class LearningActivity extends BaseActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //link cards
+        card1 = (CardView) findViewById(R.id.card1);
+        card2 = (CardView) findViewById(R.id.card2);
+        card3 = (CardView) findViewById(R.id.card3);
+        card4 = (CardView) findViewById(R.id.card4);
+
+        //add on click listeners
+        card1.setOnClickListener(this);
+        card2.setOnClickListener(this);
+        card3.setOnClickListener(this);
+        card4.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i;
+
+        switch (view.getId()) {
+            case R.id.card1: i = new Intent(this,NewsActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.card2: i = new Intent(this,LearningActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.card3: i = new Intent(this,NewsActivity.class);
+                startActivity(i);
+                break;
+
+            case R.id.card4: i = new Intent(this,SettingsActivity.class);
+                startActivity(i);
+                break;
+
+
+            default:break;
+        }
+
     }
 
     @Override
