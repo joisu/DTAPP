@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:layout_marginTop="@dimen/nav_header_height"
+    android:paddingTop="60dp"
 
     tools:context="com.example.joycehsu.dtapp.NewsActivity">
     <ListView

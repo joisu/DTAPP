@@ -22,13 +22,6 @@ public class LearningActivity extends BaseActivity implements View.OnClickListen
         View contentView = inflater.inflate(R.layout.activity_learning, null, false);
         drawer.addView(contentView, 0);
         navigationView.setCheckedItem(R.id.nav_learning);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Hello Second Activity", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         //link cards
         card1 = (CardView) findViewById(R.id.card1);
@@ -73,19 +66,19 @@ public class LearningActivity extends BaseActivity implements View.OnClickListen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_learning, menu);
+        getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        Intent i = new Intent(LearningActivity.this, LoginActivity.class);
+//                            i.putExtra("Username", name);
+        startActivity(i);
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu_learning) {
+        if (id == R.id.action_menu_home) {
             return true;
         }
 

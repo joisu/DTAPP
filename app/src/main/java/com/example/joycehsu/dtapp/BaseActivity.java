@@ -12,21 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,8 +31,6 @@ public class BaseActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -82,11 +68,13 @@ public class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_learning) {
             startAnimatedActivity(new Intent(getApplicationContext(), LearningActivity.class));
         }  else if (id == R.id.nav_review) {
-            startAnimatedActivity(new Intent(getApplicationContext(), ReviewActivity.class));
+            startAnimatedActivity(new Intent(getApplicationContext(), QuizStartActivity.class));
         } else if (id == R.id.nav_settings) {
             startAnimatedActivity(new Intent(getApplicationContext(), SettingsActivity.class));
         }else if (id == R.id.nav_news) {
             startAnimatedActivity(new Intent(getApplicationContext(), NewsActivity.class));
+        }else if (id == R.id.nav_activities) {
+            startAnimatedActivity(new Intent(getApplicationContext(), ActivitiesActivity.class));
         }
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

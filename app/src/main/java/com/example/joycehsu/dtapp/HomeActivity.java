@@ -3,7 +3,6 @@ package com.example.joycehsu.dtapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,13 +21,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         View contentView = inflater.inflate(R.layout.activity_home, null, false);
         drawer.addView(contentView, 0);
         navigationView.setCheckedItem(R.id.nav_home);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Hello Second Activity", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         //link cards
         newsCard = (CardView) findViewById(R.id.newscard);
@@ -58,7 +50,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(i);
                 break;
 
-            case R.id.activitiescard: i = new Intent(this,NewsActivity.class);
+            case R.id.activitiescard: i = new Intent(this,ActivitiesActivity.class);
                 startActivity(i);
                 break;
 
@@ -66,7 +58,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(i);
                 break;
 
-            case R.id.quizcard: i = new Intent(this,ReviewActivity.class);
+            case R.id.quizcard: i = new Intent(this,QuizStartActivity.class);
                 startActivity(i);
                 break;
 
@@ -77,7 +69,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_learning, menu);
+        getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
@@ -86,10 +78,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+//                            i.putExtra("Username", name);
+        startActivity(i);
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu_learning) {
+        if (id == R.id.action_menu_home) {
             return true;
         }
 

@@ -49,12 +49,10 @@ public class LoginActivity extends AppCompatActivity implements
 
 
         mStatusTextView = (TextView) findViewById(R.id.status);
-        mDetailTextView = (TextView) findViewById(R.id.detail);
 
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("1016277173012-nmlomnvumqbglg4cnnpf18ngg43efpf6.apps.googleusercontent.com")
@@ -127,9 +125,6 @@ public class LoginActivity extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
-
-
                             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
 //                            i.putExtra("Username", name);
                             startActivity(i);
@@ -191,15 +186,13 @@ public class LoginActivity extends AppCompatActivity implements
             name = user.getDisplayName();
             mStatusTextView.setText("Google Email: "+user.getEmail()+"\n"+
                     "Full Name: "+ name);
-            mDetailTextView.setText("Firebase User: "+user.getUid());
 //            name = ""+user.getDisplayName();
 
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
 
         } else {
-            mStatusTextView.setText("Signed Out");
-            mDetailTextView.setText(null);
+            mStatusTextView.setText("Sign in with Google Account");
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
@@ -221,8 +214,6 @@ public class LoginActivity extends AppCompatActivity implements
             signIn();
         } else if (i == R.id.sign_out_button) {
             signOut();
-        } else if (i == R.id.disconnect_button) {
-            revokeAccess();
         }
     }
 

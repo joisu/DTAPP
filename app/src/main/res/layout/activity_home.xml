@@ -8,11 +8,13 @@
     tools:context="com.example.joycehsu.dtapp.HomeActivity"
     android:orientation="vertical"
     android:padding="10dp"
+
     android:background="#fcfcfc"
     android:gravity="center"
     android:id="@+id/ll">
 
     <LinearLayout
+        android:paddingTop="60dp"
         android:clipToPadding="false"
         android:gravity="center"
         android:orientation="horizontal"
@@ -54,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="New Tech and Startups"
+                    android:text="Tech and Startup News"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -82,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Design Thinking"
+                    android:text="Learning"
                     android:textStyle="bold" />
                 <View
                     android:layout_width="match_parent"
@@ -95,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Learning"
+                    android:text="Design Thinking Topics"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -144,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="For fun"
+                    android:text="Ideas for Application"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>
@@ -188,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="Manage Account"
+                    android:text="Account and App Info"
                     android:textColor="@android:color/darker_gray" />
 
             </LinearLayout>

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,29 +22,58 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".HomeActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Home"/>
         <activity
             android:name=".ReviewActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Quiz"/>
         <activity
             android:name=".LearningActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Design Thinking"/>
         <activity
             android:name=".BaseActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SettingsActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:label="Settings"/>
         <activity
             android:name=".DetailsActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".NewsActivity"
-            android:screenOrientation="portrait" />
-    </application>
+            android:screenOrientation="portrait"
+            android:label="News"/>
+        <activity
+            android:name=".ActivitiesActivity"
+            android:label="Activities"
+            android:parentActivityName=".BaseActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.joycehsu.dtapp.BaseActivity" />
+        </activity>
 
+        <activity
+            android:name=".Quiz.QuizActivity"
+            android:screenOrientation="portrait"
+            android:label="Quiz"/>
+        <activity
+            android:name=".Quiz.QuizReviewActivity"
+            android:screenOrientation="portrait"
+            android:label="Quiz"/>
+        <activity
+            android:name=".QuizStartActivity"
+            android:screenOrientation="portrait"
+            android:label="Quiz"/>
+        <activity
+            android:name=".DTWebView"
+            android:screenOrientation="portrait"
+            android:label="Activities"/>
+    </application>
 
 </manifest>
