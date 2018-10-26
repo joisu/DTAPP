@@ -1,5 +1,8 @@
 READ ME
 
+Github repository:
+https://github.com/joisu/DTAPP
+
 Our Application focuses on the learning of the Design Thinking Topic from INFS2603. 
 
 The following navigation features have been implemented:
