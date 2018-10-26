@@ -56,20 +56,26 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     //Declares question data and then calls addQuestion() to populate the table
     private void populateQuestionsTable() {
-        Question q1 = new Question("I think A is correct?", "A", "B", "C", 1);
+        Question q1 = new Question("Design thinking ___ ideas during brainstorming", "builds up", "maintains", "narrows down", 1);
         addQuestion(q1);
-        Question q2 = new Question("I think B is correct?", "A", "B", "C", 2);
+        Question q2 = new Question("Design thinking encourages: ___", "robbing banks", "thinking outside the box", "bad behaviour", 2);
         addQuestion(q2);
-        Question q3 = new Question("I think C is correct?", "A", "B", "C", 3);
+        Question q3 = new Question("Who was one of the first authors to use the term 'design thinking?'?", "Kathy Xu", "Jeremy Fu", "John E. Arnold", 3);
         addQuestion(q3);
-        Question q4 = new Question("I think A is correct #2", "A", "B", "C", 1);
+        Question q4 = new Question("In what UNSW UG INFS course is design thinking most thoroughly covered?", "INFS2603", "INFS1609", "INFS3634", 1);
         addQuestion(q4);
-        Question q5 = new Question("I think B is correct #2", "A", "B", "C", 2);
+        Question q5 = new Question("What is a common early consideration in design thinking?", "Emanciate", "Empathise", "Empanada", 2);
         addQuestion(q5);
-        Question q6 = new Question("Extra question 1 (pick A)", "A", "B", "C", 1);
+        Question q6 = new Question("Who can benefit from using design thinking?", "Everyone", "Me", "You", 1);
         addQuestion(q6);
-        Question q7 = new Question("Extra question 2 (Pick B)", "A", "B", "C", 2);
+        Question q7 = new Question("Stanford's d.school suggests how many main aspects to design thinking?", "1", "5", "42", 2);
         addQuestion(q7);
+        Question q8 = new Question("Design thinking is ___", "the Shadow Minister for Transport", "a brand of cereal", "a way of thinking", 3);
+        addQuestion(q8);
+        Question q9 = new Question("According to John E. Arnold, what is a possible benefit of design thinking?", "The power of flight", "Access to Qantas Club Lounges", "Increased salability", 3);
+        addQuestion(q9);
+        Question q10 = new Question("Design thinking gained traction in what century?", "14th", "20th", "5th BC", 2);
+        addQuestion(q10);
     }
 
     //ContentValues uses key-value pairs to put the declared question data into the table

@@ -74,6 +74,10 @@
             android:name=".DTWebView"
             android:screenOrientation="portrait"
             android:label="Activities"/>
+        <activity android:name=".LearningLesson1" />
+        <activity android:name=".LearningLesson2" />
+        <activity android:name=".LearningLesson3" />
+        <activity android:name=".LearningLesson4" />
     </application>
 
 </manifest>
