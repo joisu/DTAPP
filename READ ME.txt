@@ -12,9 +12,10 @@ The following navigation features have been implemented:
 
 Key learning features:
 - A News activity that displays a list of newest technology and startup news using an API
-- A To-Do Activity checklist with a webview of activity instructions
-- Course Content with card widgets and Youtube videos to aid understanding using Youtube API, when content is finished topic will display "finished" otherwise "in progress"
-- Multiple Choice Quiz with timer and feedback to test user's learning, questions are randomised and high score is saved for the user. 
+- A To-Do Activity checklist by use of a listview and a button link to webview of activity instructions
+- Course Content with card widgets and Youtube videos to aid understanding using Youtube API, when content is finished topic will display "finished" otherwise "in progress". 
+The progress is saved for the user. 
+- Multiple Choice Quiz with timer and feedback to test user's learning, questions are randomised and high score is saved for the user. Warning toast on backpress. 
 
 
 Demo of the Application:
