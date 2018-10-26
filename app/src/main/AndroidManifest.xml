@@ -34,7 +34,11 @@
         <activity
             android:name=".QuizStartActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".QuizReviewActivity"></activity>
+        <activity android:name=".QuizReviewActivity" />
+        <activity android:name=".LearningLesson1" />
+        <activity android:name=".LearningLesson2" />
+        <activity android:name=".LearningLesson3" />
+        <activity android:name=".LearningLesson4"></activity>
     </application>
 
 </manifest>

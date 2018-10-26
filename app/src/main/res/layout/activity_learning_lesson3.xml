@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LearningLesson3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/textview_learninglesson3text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="PLACEHOLDER"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textview_learninglesson3text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_learninglesson3text1"
+            android:padding="20dp"
+            android:text="placeholder2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_seemore"
+            android:layout_below="@+id/textview_learninglesson3text2"
+            android:layout_centerHorizontal="true"
+            android:text="See More"/>
+
+        <TextView
+            android:id="@+id/textview_learninglesson3text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_learninglesson3text2"
+            android:padding="20dp"
+            android:text="placeholder3"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_seeevenmore"
+            android:text="See Even More"
+            android:layout_below="@id/textview_learninglesson3text3"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textview_learninglesson3text4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_learninglesson3text3"
+            android:padding="20dp"
+            android:text="placeholder4"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_seeevenmore2"
+            android:text="See Even More"
+            android:layout_below="@id/textview_learninglesson3text4"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textview_learninglesson3text5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textview_learninglesson3text4"
+            android:padding="20dp"
+            android:text="placeholder4"
+            android:visibility="gone"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_learned"
+            android:text="Finish lesson"
+            android:layout_below="@+id/textview_learninglesson3text5"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>
