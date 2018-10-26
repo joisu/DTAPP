@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import static java.sql.Types.NULL;
 
@@ -33,7 +32,6 @@ public class LearningActivity extends BaseActivity implements View.OnClickListen
 
     private TextView card1title, card2title, card3title, card4title;
 
-    private TextView textviewLearningTitle;
     private CardView card1, card2, card3, card4, card5, card6, card7;
 
     @Override
@@ -58,8 +56,6 @@ public class LearningActivity extends BaseActivity implements View.OnClickListen
         card3title = (TextView) findViewById(R.id.card3title);
         card4title = (TextView) findViewById(R.id.card4title);
 
-
-        textviewLearningTitle = (TextView) findViewById(R.id.textview_learningtitle);
 
         //link cards
         card1 = (CardView) findViewById(R.id.card1);
@@ -121,8 +117,6 @@ public class LearningActivity extends BaseActivity implements View.OnClickListen
 
 
                 int card1Learned = data.getIntExtra(LearningLesson1.TRANSFER_LEARNED, 0);
-
-                Toast.makeText(this, "LearningActivity received card1Learned: " + card1Learned, Toast.LENGTH_SHORT).show();
 
                 if (card1Learned == 2) {
                     card1title.setText("Topic 1\n" + "(Finished)");

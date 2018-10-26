@@ -1,14 +1,21 @@
 package com.example.joycehsu.dtapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
-public class LearningLesson1 extends AppCompatActivity {
+
+public class LearningLesson1 extends YouTubeBaseActivity {
+
+    private static final String TAG = "LearningLesson1";
 
     public static final String TRANSFER_LEARNED = "transferlearned";
     private TextView textviewLearningLesson1Text1;
@@ -19,11 +26,44 @@ public class LearningLesson1 extends AppCompatActivity {
     private Button buttonSeeEvenMore;
     private Button buttonLearned;
 
+    private YouTubePlayerView view_youtubePlayer;
+    private Button button_youtubePlayer;
+
+    YouTubePlayer.OnInitializedListener onInitializedListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_lesson1);
+
+        Log.d(TAG, "onCreate: Starting LearningLesson1");
+
+        button_youtubePlayer = (Button) findViewById(R.id.button_youtubeplayer);
+        view_youtubePlayer = (YouTubePlayerView) findViewById(R.id.view_youtubeplayer);
+
+        //Methods on success and failure of initialization
+        onInitializedListener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                Log.d(TAG, "onClick: Done initializing YouTube Player");
+                youTubePlayer.loadVideo("_r0VX-aU_T8");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+                Log.d(TAG, "onClick: Failed to initialize YouTube Player");
+            }
+        };
+
+        button_youtubePlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: Initializing YouTube Player");
+                view_youtubePlayer.initialize(YouTubeConfig.getApiKey(), onInitializedListener);
+
+            }
+        });
 
         textviewLearningLesson1Text1 = (TextView) findViewById(R.id.textview_learninglesson1text1);
         textviewLearningLesson1Text2 = (TextView) findViewById(R.id.textview_learninglesson1text2);
@@ -88,6 +128,7 @@ public class LearningLesson1 extends AppCompatActivity {
 
     }
 
+    //overrides back button to send a TRANSFER_LEARNED value for use in LearningActivity class
     @Override
     public void onBackPressed() {
         Intent resultIntent = new Intent(LearningLesson1.this, LearningActivity.class);
