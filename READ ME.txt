@@ -1,0 +1,29 @@
+READ ME
+
+Our Application focuses on the learning of the Design Thinking Topic from INFS2603. 
+
+The following navigation features have been implemented:
+
+- Login using Google Account with use of Firebase
+- Home Page with card navigation widgets
+- Navigation Drawer on every main activity 
+- Upper right corner menu to sign out
+- Settings Page to view account and app information
+
+Key learning features:
+- A News activity that displays a list of newest technology and startup news using an API
+- A To-Do Activity checklist with a webview of activity instructions
+- Course Content with card widgets and Youtube videos to aid understanding using Youtube API, when content is finished topic will display "finished" otherwise "in progress"
+- Multiple Choice Quiz with timer and feedback to test user's learning, questions are randomised and high score is saved for the user. 
+
+
+Demo of the Application:
+https://youtu.be/A5fTMsZr-jM
+
+Note:
+- Google Play Services must be installed for the application to run
+- Firebase Google Login requires a SHA key when running from a new computer - we have contacted the tutor about this, please email if there's any issues! 
+ 
+
+Joyce Hsu z5076384
+Justin Yap z5061320
