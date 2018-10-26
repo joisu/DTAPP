@@ -1,46 +1,38 @@
 package com.example.joycehsu.dtapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.webkit.WebView;
+import android.widget.ListView;
 
-public class ReviewActivity extends BaseActivity {
-
+public class DTWebView extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //inflate your activity layout here!
-        View contentView = inflater.inflate(R.layout.activity_review, null, false);
+        View contentView = inflater.inflate(R.layout.webview, null, false);
+
+
+        //display instructions on the tasklist
+        WebView webView = new WebView(this);
+        setContentView(webView);
+        webView.loadUrl("https://medium.com/constraint-drives-creativity/10-creativity-challenges-to-exercise-your-creative-confidence-ff6f19ba4241");
         drawer.addView(contentView, 0);
-        navigationView.setCheckedItem(R.id.nav_review);
-
-        Button buttonGoToQuiz = findViewById(R.id.button_goToQuiz);
-        buttonGoToQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToQuiz();
-            }
-        });
+        navigationView.setCheckedItem(R.id.nav_activities);
     }
 
-    // intent method to go to the quiz from review
-    private void goToQuiz() {
-        Intent intent = new Intent(ReviewActivity.this, QuizStartActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_review, menu);
+        getMenuInflater().inflate(R.menu.menu_learning, menu);
         return true;
     }
 
@@ -52,7 +44,7 @@ public class ReviewActivity extends BaseActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu_review) {
+        if (id == R.id.action_menu_learning) {
             return true;
         }
 

@@ -7,29 +7,29 @@
             android:icon="@drawable/home"
             android:title="Home" />
         <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/news"
+            android:title="News" />
+        <item
+            android:id="@+id/nav_activities"
+            android:icon="@drawable/test"
+            android:title="Activities" />
+        <item
             android:id="@+id/nav_learning"
             android:icon="@drawable/notebook"
             android:title="Learning" />
         <item
             android:id="@+id/nav_review"
             android:icon="@drawable/test"
-            android:title="Review" />
+            android:title="Quiz" />
     </group>
 
     <item android:title="Manage">
         <menu>
             <item
-                android:id="@+id/nav_account"
-                android:icon="@drawable/grandfather"
-                android:title="Account" />
-            <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/settings"
                 android:title="Settings" />
-            <item
-                android:id="@+id/nav_help"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Help" />
         </menu>
     </item>
 
