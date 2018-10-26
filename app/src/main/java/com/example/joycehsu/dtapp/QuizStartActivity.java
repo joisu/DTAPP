@@ -29,7 +29,6 @@ public class QuizStartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //inflate your activity layout here!
         View contentView = inflater.inflate(R.layout.activity_quiz_start, null, false);
         drawer.addView(contentView, 0);
         navigationView.setCheckedItem(R.id.nav_review);
@@ -119,7 +118,6 @@ public class QuizStartActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
@@ -131,7 +129,6 @@ public class QuizStartActivity extends BaseActivity {
         startActivity(i);
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_menu_home) {
             return true;
         }

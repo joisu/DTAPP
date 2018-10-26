@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class NewsActivity extends BaseActivity {
+    //API key from techcrunch
     String API_KEY = "4f3d80e4807f45bb96d5bce27eb2eb49";
     String NEWS_SOURCE = "techcrunch";
     ListView listNews;
@@ -123,7 +124,6 @@ public class NewsActivity extends BaseActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
@@ -137,7 +137,6 @@ public class NewsActivity extends BaseActivity {
         startActivity(i);
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_menu_home) {
             return true;
         }

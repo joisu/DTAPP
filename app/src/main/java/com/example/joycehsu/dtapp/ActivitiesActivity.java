@@ -46,7 +46,7 @@ public class ActivitiesActivity extends BaseActivity {
         ListView listView = (ListView) findViewById(R.id.listview);
         Button instructions = (Button) findViewById(R.id.instructButton);
 
-
+        //ADD tasks
         final List<UserModel> users = new ArrayList<>();
         users.add(new UserModel(false, "Think Divergently and Creatively"));
         users.add(new UserModel(false, "Increase Your Creative Output"));
@@ -80,6 +80,7 @@ public class ActivitiesActivity extends BaseActivity {
             }
         });
 
+        //links to webview for instructions on tasks
         instructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,15 +89,9 @@ public class ActivitiesActivity extends BaseActivity {
             }
         });
 
-
-
     }
 
-
-
-
-
-
+    //top right hand menu for settings
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

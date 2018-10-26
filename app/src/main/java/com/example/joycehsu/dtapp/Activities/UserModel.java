@@ -1,12 +1,10 @@
 package com.example.joycehsu.dtapp.Activities;
 
+//Model for creating tasks
 public class UserModel {
 
     boolean isSelected;
     String userName;
-
-    //now create constructor and getter setter method using shortcut like command+n for mac & Alt+Insert for window.
-
 
     public UserModel(boolean isSelected, String userName) {
         this.isSelected = isSelected;

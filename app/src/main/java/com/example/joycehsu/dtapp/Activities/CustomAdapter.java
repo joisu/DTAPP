@@ -17,9 +17,6 @@ public class CustomAdapter extends BaseAdapter {
     List<UserModel> users;
     LayoutInflater inflater;
 
-    //short to create constructer using command+n for mac & Alt+Insert for window
-
-
     public CustomAdapter(Activity activity) {
         this.activity = activity;
     }
@@ -30,7 +27,6 @@ public class CustomAdapter extends BaseAdapter {
 
         inflater        = activity.getLayoutInflater();
     }
-
 
     @Override
     public int getCount() {

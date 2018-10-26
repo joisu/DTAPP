@@ -28,6 +28,7 @@ public class SettingsActivity extends BaseActivity {
         drawer.addView(contentView, 0);
         navigationView.setCheckedItem(R.id.nav_settings);
 
+        //go to login account page
         final Button button = findViewById(R.id.view_account_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +42,6 @@ public class SettingsActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
@@ -53,7 +53,6 @@ public class SettingsActivity extends BaseActivity {
         startActivity(i);
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_menu_home) {
             return true;
         }

@@ -16,10 +16,10 @@ public class DTWebView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //inflate your activity layout here!
         View contentView = inflater.inflate(R.layout.webview, null, false);
 
 
+        //display instructions on the tasklist
         WebView webView = new WebView(this);
         setContentView(webView);
         webView.loadUrl("https://medium.com/constraint-drives-creativity/10-creativity-challenges-to-exercise-your-creative-confidence-ff6f19ba4241");
