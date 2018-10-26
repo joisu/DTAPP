@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:gravity="center"
-                    android:text="Topic 1\n(In progress)"
+                    android:text="Topic 1"
                     android:textStyle="bold" />
 
                 <TextView
